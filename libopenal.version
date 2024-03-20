@@ -17,6 +17,7 @@ alcCreateContext;
 alcDestroyContext;
 alcGetContextsDevice;
 alcGetCurrentContext;
+alcExternalBackendGetSamples;
 alcGetEnumValue;
 alcGetError;
 alcGetIntegerv;

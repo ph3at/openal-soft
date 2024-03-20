@@ -196,6 +196,8 @@ ALC_API ALCdevice* ALC_APIENTRY alcOpenDevice(const ALCchar *devicename);
 /** Closes the given playback device. */
 ALC_API ALCboolean ALC_APIENTRY alcCloseDevice(ALCdevice *device);
 
+ALC_API void ALC_APIENTRY alcExternalBackendGetSamples(ALCshort* out, ALCuint numSamples);
+
 /* Error support. */
 
 /** Obtain the most recent Device error. */

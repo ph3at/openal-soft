@@ -886,6 +886,8 @@ set(ALC_OBJS  ${ALC_OBJS}
     alc/backends/loopback.h
     alc/backends/null.cpp
     alc/backends/null.h
+    alc/backends/external.cpp
+    alc/backends/external.h
 )
 
 # Check PipeWire backend

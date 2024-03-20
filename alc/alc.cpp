@@ -103,6 +103,7 @@
 #include "vector.h"
 
 #include "backends/base.h"
+#include "backends/external.h"
 #include "backends/null.h"
 #include "backends/loopback.h"
 #ifdef HAVE_PIPEWIRE
@@ -248,6 +249,10 @@ BackendInfo BackendList[] = {
 #endif
 #ifdef HAVE_SDL2
     { "sdl2", SDL2BackendFactory::getFactory },
+#endif
+
+#ifdef __PROSPERO__
+    { "external", ExternalBackendFactory::getFactory },
 #endif
 
     { "null", NullBackendFactory::getFactory },
