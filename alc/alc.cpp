@@ -37,7 +37,6 @@
 #include <cinttypes>
 #include <climits>
 #include <cmath>
-#include <csignal>
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
@@ -1634,7 +1633,6 @@ void alcSetError(ALCdevice *device, ALCenum errorCode)
         if(IsDebuggerPresent())
             DebugBreak();
 #elif defined(SIGTRAP)
-        raise(SIGTRAP);
 #endif
     }
 

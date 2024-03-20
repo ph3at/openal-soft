@@ -146,7 +146,10 @@ endif()
 
 set(CPP_DEFS ) # C pre-processor, not C++
 set(INC_PATHS )
-set(C_FLAGS )
+set(C_FLAGS)
+if(CMAKE_SYSTEM_NAME STREQUAL "Prospero")
+    set(C_FLAGS -fexceptions)
+endif()
 set(LINKER_FLAGS )
 set(EXTRA_LIBS )
 
@@ -368,6 +371,7 @@ else()
 
     set(CMAKE_REQUIRED_FLAGS "${OLD_REQUIRED_FLAGS}")
 endif()
+set(EXPORT_DECL "__declspec(dllexport)")
 
 
 set(SSE2_SWITCH "")
@@ -561,8 +565,7 @@ if(NOT WIN32)
     check_c_compiler_flag(-pthread HAVE_PTHREAD)
     if(HAVE_PTHREAD)
         set(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -pthread")
-        set(C_FLAGS ${C_FLAGS} -pthread)
-        set(LINKER_FLAGS ${LINKER_FLAGS} -pthread)
+        set(LINKER_FLAGS ${LINKER_FLAGS} -lScePosix_stub_weak)
     endif()
 
     check_symbol_exists(pthread_setschedparam pthread.h HAVE_PTHREAD_SETSCHEDPARAM)

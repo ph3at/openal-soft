@@ -26,7 +26,6 @@
 #endif
 
 #include <atomic>
-#include <csignal>
 #include <cstdarg>
 #include <cstdio>
 #include <cstring>
@@ -73,7 +72,6 @@ void ALCcontext::setError(ALenum errorCode, const char *msg, ...)
         if(IsDebuggerPresent())
             DebugBreak();
 #elif defined(SIGTRAP)
-        raise(SIGTRAP);
 #endif
     }
 
@@ -95,7 +93,6 @@ START_API_FUNC
             if(IsDebuggerPresent())
                 DebugBreak();
 #elif defined(SIGTRAP)
-            raise(SIGTRAP);
 #endif
         }
         return deferror;

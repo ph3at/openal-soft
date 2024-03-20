@@ -360,6 +360,10 @@ void ReadALConfig()
     }
 }
 
+#elif __PROSPERO__
+
+void ReadALConfig() {}
+
 #else
 
 void ReadALConfig()

@@ -178,6 +178,11 @@ void SetRTPriority(void)
     }
 }
 
+#elif __PROSPERO__
+
+al::vector<std::string> SearchDataFiles(const char*, const char*) { return {}; }
+void SetRTPriority() {}
+
 #else
 
 #include <sys/types.h>
